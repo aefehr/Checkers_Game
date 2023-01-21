@@ -1,0 +1,60 @@
+
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+CIS 1200 Game Project README
+PennKey: fehra
+=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=:=
+
+===================
+=: Core Concepts :=
+===================
+
+- List the four core concepts, the features they implement, and why each feature
+  is an appropriate use of the concept. Incorporate the feedback you got after
+  submitting your proposal.
+
+  1. 2D Arrays: Since checkers is a grid-based game, I used a 2D array to represent the rows and columns of the board.
+  The data stored inside the array was a BoardSquare object which represent a colored square on the checker board. A
+  Using a 2D array to represent the checker board is appropriate because I can easily iterate through the array and
+  access a board square at a given row and column to either put a checker on it or remove a checker.
+
+  2. File I/O: I use file I/O to implement the feature of saving the current state of the checker game and being able to
+  load this saved game state so that a player can pick up playing at this saved state. By using file i/o, I'm able to
+  to write the contents of the current game to save to a file and then I can read from this file when I want to load the
+  previously stored game.
+
+  3. JUnit testable component: This concept is used for testing the logic of my game. This is appropriate to use because
+  the model and view of my game are separate, so I need to make sure that internally my game is working correctly. This
+  includes checking that when a checker jumps over the other colored checked, this captured checker is removed from the
+  square on the board and the number of checkers captured for this color increases by one.
+
+  4. Collections: I use ArrayLists to implement the feature of storing all the possible moves a checker from a certain
+  square on the board can make. ArraysLists are appropriate for this because an array list doesn't have to have a set size and
+  this works well for storing legal moves because the number of legal moves that a checker can make can be different at
+  any given time.
+
+=========================
+=: Your Implementation :=
+=========================
+
+- Provide an overview of each of the classes in your code, and what their
+  function is in the overall game.
+
+   My BoardSquare class creates an object that represents a square on the checkerboard. BoardSquares are stored in my 2D
+   array that represents the rows and columns of the checkerboard. Each BoardSquare has a private instance variable to
+   store what checker object they contain, or null if empty. The BoardSquares are critical for finding all the possible
+   legal moves because there are methods for checking whether the square is empty or not.
+
+   My CheckerPiece class creates an object that represents a checker piece. It keeps track of what row and column it is
+   in on the board and what color it is. Being able to store and access the color of the checker piece helps me with
+   finding the legal moves and setting up the initial game board
+
+   My Checkers class is the model for my game. This includes my game logic and can be played independent of the view.
+
+   My GameBoard class is the view and controller for my code where the GUI is updated based on the current state of my
+   game.
+
+   My FileLineIterator class is a wrapper class for bufferedReader and helps me read through my file that stores the
+   game state line by line.
+
+
+
